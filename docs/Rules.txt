@@ -1,0 +1,68 @@
+This version of Triple Triad does have some minor deviations from the official rules, but I will try and stay as true to the original as possible.
+
+-------------------------
+
+Basic Rules:
+
+Each player can own any number of cards. From these cards, a player can choose 15 unique selections to enter a game with. These 15 are used by things such as the random rule (see below). A game is either a single game or a best of three contest between two players.
+
+Each player starts the game with a hand of 5 cards chosen from their pool, and the first person to play is decided by a coin toss. The players then take turns to place a card on a 3 by 3 grid, as they try to capture as many of their opponent's cards as possible while protecting their own.
+
+The simplest way to capture an opponents card is to place a card where it's adjoining side has a higher rank than the other card's ajoining side. The person at the end of a game with the most cards under their control is the winner.
+
+These rules can and usually are augmented with any number of rules from the list below.
+
+-------------------------
+
+Rule variations:
+
+A game can be played with any number of these rules, however some of these rules are incompatible.
+
+Open:
+	Enables the player to see which cards the opponent is using.
+
+Same:
+	When a card is placed touching two or more other cards (one or both of them have to be the opposite color), and the touching sides of each card is the same (8 touching 8 for example), then the other two cards are flipped. Combo rule applies.
+
+Same Wall:
+	An extension of the Same rule. The edges of the board are counted as A ranks for the purposes of the Same rule. Combo rule applies.
+
+Plus:
+	Similar to the Same rule. When one card is placed touching two others and the ranks touching the cards plus the opposing rank equal the same sum, then both cards are captured. Combo rule applies.
+
+Plus Wall:
+	An extension of the Plus rule. The edges of the board are counted as A ranks for the purposes of the Plus rule. Combo rule applies.
+
+Combo:
+	Of the cards captured by the Same, Same Wall, Plus or Plus Wall rule, if they are adjacent to another card whose rank is lower, then it is captured as well. This is not a separate rule; any time Same or Plus is in effect, Combo is in effect as well.
+
+Sudden Death:
+	If the game ends in a draw, a sudden death occurs in which a new game is started but the cards are distributed on the side of the color they were on at the end of the game.
+
+Random:
+	Five cards are randomly chosen from the player's pool instead of the player being able to choose five cards themselves.
+
+Elemental:
+	In the elemental rule, one or more of the spaces are randomly marked with an element. Some cards have elements in the upper-right corner of the card. Ruby Dragon, for example, is fire-elemental, and Quezacotl is thunder-elemental. When an elemental card is placed on a corresponding element, each rank goes up one point. When any card is placed on a non-matching element, each rank goes down one point. This does not affect the Same, Plus and Same Wall rules, where the cards' original ranks apply.
+
+Exchange:
+	Between games in a best of 3 contest, a player can exchange cards in their current hand for other cards in their pool.
+
+-------------------------
+
+Trade Rules:
+
+Only one of these rules can be used at a time.
+
+One:
+	The most common rule in which the winner takes any one of the opponent's cards.
+
+Difference (Diff):
+	The winner takes as many cards as there is a difference between pink cards and blue cards. This rule is cumulative between separate games in a best of 3 contest.
+
+Direct:
+	Players take cards that are their color at the end of the game. This rule is applied for each game in a best of 3 contest.
+
+All:
+	Winner takes all.
+
