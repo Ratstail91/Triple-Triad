@@ -8,7 +8,7 @@ Each player can own any number of cards. From these cards, a player can choose 1
 
 Each player starts the game with a hand of 5 cards chosen from their pool, and the first person to play is decided by a coin toss. The players then take turns to place a card on a 3 by 3 grid, as they try to capture as many of their opponent's cards as possible while protecting their own.
 
-The simplest way to capture an opponents card is to place a card where it's adjoining side has a higher rank than the other card's ajoining side. The person at the end of a game with the most cards under their control is the winner.
+The simplest way to capture an opponents card is to place a card where it's adjoining side has a higher rank than the other card's adjoining side. The person at the end of a game with the most cards under their control is the winner.
 
 These rules can and usually are augmented with any number of rules from the list below.
 
