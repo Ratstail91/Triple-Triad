@@ -1,6 +1,14 @@
+## Outline
+
+A clone of the minigame "Triple Triad" seen in Final Fantasy VIII.
+
+## External Dependencies
+
+* [SDL 2.0](http://www.libsdl.org/) - Simple DirectMedia Layer API
+
 ## Copyright
 
-Copyright (c) Kayne Ruse 2013
+Copyright (c) Kayne Ruse 2013, 2015
 
 This software is provided 'as-is', without any express or implied warranty. In no event will the authors be held liable for any damages arising from the use of this software.
 
