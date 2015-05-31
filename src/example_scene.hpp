@@ -23,11 +23,15 @@
 
 #include "base_scene.hpp"
 
+#include "image.hpp"
+
 class ExampleScene : public BaseScene {
 public:
 	ExampleScene();
 	virtual ~ExampleScene();
 
+	virtual void RenderFrame(SDL_Renderer* renderer);
+
 private:
-	//
+	Image flower;
 };

@@ -28,3 +28,9 @@ ExampleScene::ExampleScene() {
 ExampleScene::~ExampleScene() {
 	//
 }
+
+void ExampleScene::RenderFrame(SDL_Renderer* renderer) {
+	flower.Load(renderer, "aniflower.bmp");
+	flower.DrawTo(renderer, 0, 0);
+	flower.Free();
+}

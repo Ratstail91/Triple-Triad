@@ -5,6 +5,7 @@ A clone of the minigame "Triple Triad" seen in Final Fantasy VIII.
 ## External Dependencies
 
 * [SDL 2.0](http://www.libsdl.org/) - Simple DirectMedia Layer API
+* [SDL_image 2.0](https://www.libsdl.org/projects/SDL_image/) - An extention for SDL, for loading various image files.
 
 ## Copyright
 
