@@ -21,6 +21,8 @@
 */
 #include "base_scene.hpp"
 
+SDL_Renderer* BaseScene::rendererHandle = nullptr;
+
 BaseScene::BaseScene() {
 	//EMPTY
 }
@@ -40,12 +42,20 @@ void BaseScene::RenderFrame(SDL_Renderer* renderer) {
 	//EMPTY
 }
 
-SceneSignal BaseScene::GetSceneSignal() {
-	return sceneSignal;
+void BaseScene::SetRenderer(SDL_Renderer* r) {
+	rendererHandle = r;
+}
+
+SDL_Renderer* BaseScene::GetRenderer() {
+	return rendererHandle;
 }
 
 void BaseScene::SetSceneSignal(SceneSignal signal) {
 	sceneSignal = signal;
+}
+
+SceneSignal BaseScene::GetSceneSignal() {
+	return sceneSignal;
 }
 
 //-------------------------

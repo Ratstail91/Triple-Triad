@@ -13,7 +13,7 @@ LIBS+=-lSDL2main -lSDL2 -lSDL2_image
 CXXFLAGS+=-std=c++11 $(addprefix -I,$(INCLUDES))
 ifeq ($(shell uname), Linux)
 	#read data about the current install
-	$(shell sdl-config --cflags --static-libs)
+	CXXFLAGS+=$(shell sdl-config --cflags --static-libs)
 endif
 
 #source

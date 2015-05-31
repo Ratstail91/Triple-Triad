@@ -33,10 +33,12 @@ public:
 	virtual void RunFrame();
 	virtual void RenderFrame(SDL_Renderer*);
 
+	static void SetRenderer(SDL_Renderer*);
 	SceneSignal GetSceneSignal();
 
 protected:
 	//control
+	static SDL_Renderer* GetRenderer();
 	void SetSceneSignal(SceneSignal);
 
 	//frame phases
@@ -57,5 +59,6 @@ protected:
 	//TODO: joystick and controller events
 
 private:
+	static SDL_Renderer* rendererHandle;
 	SceneSignal sceneSignal = SceneSignal::CONTINUE;
 };

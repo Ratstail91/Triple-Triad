@@ -165,10 +165,20 @@ void Image::DrawTo(SDL_Renderer* const renderer, Sint16 x, Sint16 y) {
 	SDL_RenderCopy(renderer, texture, &sclip, &dclip);
 }
 
-void Image::SetTransparentColor(Uint8 r, Uint8 g, Uint8 b) {
-	//TODO: empty method
+void Image::SetAlpha(Uint8 a) {
+	if (SDL_SetTextureAlphaMod(texture, a)) {
+		std::ostringstream msg;
+		msg << "Failed to set alpha; " << SDL_GetError();
+		throw(std::runtime_error(msg.str()));
+	}
 }
 
-void Image::ClearTransparentColor() {
-	//TODO: empty method
+Uint8 Image::GetAlpha() {
+	Uint8 ret = 0;
+	if (SDL_GetTextureAlphaMod(texture, &ret)) {
+		std::ostringstream msg;
+		msg << "Failed to get alpha; " << SDL_GetError();
+		throw(std::runtime_error(msg.str()));
+	}
+	return ret;
 }

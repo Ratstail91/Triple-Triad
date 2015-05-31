@@ -21,16 +21,18 @@
 */
 #include "example_scene.hpp"
 
+#include <iostream>
+
 ExampleScene::ExampleScene() {
-	//
+	flower.Load(GetRenderer(), "aniflower.png");
+	flower.SetAlpha(128);
+	std::cout << "w & h: (" << flower.GetClipW() << ", " << flower.GetClipH() << ")" << std::endl;
 }
 
 ExampleScene::~ExampleScene() {
-	//
+	flower.Free();
 }
 
 void ExampleScene::RenderFrame(SDL_Renderer* renderer) {
-	flower.Load(renderer, "aniflower.bmp");
 	flower.DrawTo(renderer, 0, 0);
-	flower.Free();
 }

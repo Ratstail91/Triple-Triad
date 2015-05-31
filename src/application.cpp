@@ -49,6 +49,9 @@ void Application::Init(int argc, char* argv[]) {
 		msg << "Failed to create the renderer: " << SDL_GetError();
 		throw(std::runtime_error(msg.str()));
 	}
+
+	//set the hook for the renderer
+	BaseScene::SetRenderer(renderer);
 }
 
 void Application::Proc() {
@@ -97,11 +100,12 @@ void Application::Proc() {
 
 void Application::Quit() {
 	//cleran up after the program
+	BaseScene::SetRenderer(nullptr);
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 
 	//TODO: is this necessary?
-	SDL_Quit();
+//	SDL_Quit();
 }
 
 //-------------------------

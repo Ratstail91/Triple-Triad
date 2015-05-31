@@ -46,6 +46,9 @@ public:
 
 	void DrawTo(SDL_Renderer* const, Sint16 x, Sint16 y);
 
+	void SetAlpha(Uint8 a);
+	Uint8 GetAlpha();
+
 	//Clip handlers
 	inline SDL_Rect SetClip(SDL_Rect r) { return clip = r; }
 	inline SDL_Rect GetClip() const { return clip; }
@@ -61,12 +64,6 @@ public:
 	inline Uint16 GetClipH() const { return clip.h; }
 
 	inline bool GetLocal() const { return local; }
-
-	//TODO: opacity
-
-	//compatibility with bitmap files
-	void SetTransparentColor(Uint8 r, Uint8 g, Uint8 b);
-	void ClearTransparentColor();
 
 private:
 	SDL_Texture* texture = nullptr;
