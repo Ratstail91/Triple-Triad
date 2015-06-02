@@ -66,3 +66,11 @@ Direct:
 All:
 	Winner takes all.
 
+-------------------------
+
+Ideas:
+
+Cards with unique effects.
+Elements only on the cards. They give a +1 boost against another card of a weaker type.
+A card which gives -1 to the final score of the person who controls it.
+Cards which have "inverse" effects; they only capture cards with scores lower then themselves.
