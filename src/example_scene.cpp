@@ -24,7 +24,7 @@
 #include <iostream>
 
 ExampleScene::ExampleScene() {
-	flower.Load(GetRenderer(), "aniflower.png", 4, 1);
+	flower.Load(GetRenderer(), "../rsc/aniflower.png", 4, 1);
 	flower.SetDelay(0.1);
 }
 
@@ -34,5 +34,5 @@ ExampleScene::~ExampleScene() {
 
 void ExampleScene::RenderFrame(SDL_Renderer* renderer) {
 	flower.Update(0.001);
-	flower.DrawTo(renderer, 0, 0, 4, 4);
+	flower.DrawTo(renderer, 0, 0, 10, 10);
 }
