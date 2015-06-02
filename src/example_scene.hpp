@@ -23,7 +23,7 @@
 
 #include "base_scene.hpp"
 
-#include "image.hpp"
+#include "sprite_sheet.hpp"
 
 class ExampleScene : public BaseScene {
 public:
@@ -33,5 +33,5 @@ public:
 	virtual void RenderFrame(SDL_Renderer* renderer);
 
 private:
-	Image flower;
+	SpriteSheet flower;
 };

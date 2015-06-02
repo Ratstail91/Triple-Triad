@@ -24,9 +24,8 @@
 #include <iostream>
 
 ExampleScene::ExampleScene() {
-	flower.Load(GetRenderer(), "aniflower.png");
-	flower.SetAlpha(128);
-	std::cout << "w & h: (" << flower.GetClipW() << ", " << flower.GetClipH() << ")" << std::endl;
+	flower.Load(GetRenderer(), "aniflower.png", 4, 1);
+	flower.SetDelay(0.1);
 }
 
 ExampleScene::~ExampleScene() {
@@ -34,5 +33,6 @@ ExampleScene::~ExampleScene() {
 }
 
 void ExampleScene::RenderFrame(SDL_Renderer* renderer) {
-	flower.DrawTo(renderer, 0, 0);
+	flower.Update(0.001);
+	flower.DrawTo(renderer, 0, 0, 4, 4);
 }

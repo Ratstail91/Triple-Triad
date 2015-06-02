@@ -124,7 +124,7 @@ SDL_Texture* Image::Create(SDL_Renderer* renderer, Uint16 w, Uint16 h) {
 	return texture;
 }
 
-SDL_Texture* Image::Set(SDL_Texture* ptr) {
+SDL_Texture* Image::SetTexture(SDL_Texture* ptr) {
 	Free();
 
 	texture = ptr;
@@ -143,7 +143,7 @@ SDL_Texture* Image::Set(SDL_Texture* ptr) {
 	return texture;
 }
 
-SDL_Texture* Image::Get() const {
+SDL_Texture* Image::GetTexture() const {
 	return texture;
 }
 
@@ -156,12 +156,12 @@ void Image::Free() {
 	clip = {0, 0, 0, 0};
 }
 
-//TODO: implement scaling
-void Image::DrawTo(SDL_Renderer* const renderer, Sint16 x, Sint16 y) {
+void Image::DrawTo(SDL_Renderer* const renderer, Sint16 x, Sint16 y, double scaleX, double scaleY) {
 	if (!texture) {
 		throw(std::logic_error("No image texture to draw"));
 	}
-	SDL_Rect sclip = clip, dclip = {x,y, clip.w, clip.h};
+	SDL_Rect sclip = clip;
+	SDL_Rect dclip = {x, y, Uint16(clip.w * scaleX), Uint16(clip.h * scaleY)};
 	SDL_RenderCopy(renderer, texture, &sclip, &dclip);
 }
 
