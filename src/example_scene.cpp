@@ -24,15 +24,64 @@
 #include <iostream>
 
 ExampleScene::ExampleScene() {
-	flower.Load(GetRenderer(), "../rsc/aniflower.png", 4, 1);
-	flower.SetDelay(0.1);
+	cardSheet.Load(GetRenderer(), "../rsc/level1.png");
+
+	//
 }
 
 ExampleScene::~ExampleScene() {
-	flower.Free();
+	//
+}
+
+//-------------------------
+//frame phases
+//-------------------------
+
+void ExampleScene::FrameStart() {
+	//
+}
+
+void ExampleScene::Update() {
+	//
+}
+
+void ExampleScene::FrameEnd() {
+	//
 }
 
 void ExampleScene::RenderFrame(SDL_Renderer* renderer) {
-	flower.Update(0.001);
-	flower.DrawTo(renderer, 0, 0, 10, 10);
+	cardSheet.DrawTo(renderer, 0, 0, .25, .25);
+}
+
+//-------------------------
+//input events
+//-------------------------
+
+void ExampleScene::MouseMotion(SDL_MouseMotionEvent const& event) {
+	//
+}
+
+void ExampleScene::MouseButtonDown(SDL_MouseButtonEvent const& event) {
+	//
+}
+
+void ExampleScene::MouseButtonUp(SDL_MouseButtonEvent const& event) {
+	//
+}
+
+void ExampleScene::MouseWheel(SDL_MouseWheelEvent const& event) {
+	//
+}
+
+void ExampleScene::KeyDown(SDL_KeyboardEvent const& event) {
+	//preference as a default
+	switch(event.keysym.sym) {
+		case SDLK_ESCAPE:
+			QuitEvent();
+		break;
+	}
+}
+
+void ExampleScene::KeyUp(SDL_KeyboardEvent const& event) {
+	//
 }

@@ -23,15 +23,31 @@
 
 #include "base_scene.hpp"
 
-#include "sprite_sheet.hpp"
+#include "image.hpp"
+#include "trading_card.hpp"
 
 class ExampleScene : public BaseScene {
 public:
 	ExampleScene();
-	virtual ~ExampleScene();
+	~ExampleScene();
 
-	virtual void RenderFrame(SDL_Renderer* renderer);
+	void RenderFrame(SDL_Renderer* renderer) override;
 
 private:
-	SpriteSheet flower;
+	//frame phases
+	void FrameStart() override;
+	void Update() override;
+	void FrameEnd() override;
+
+	//input events
+	void MouseMotion(SDL_MouseMotionEvent const& event) override;
+	void MouseButtonDown(SDL_MouseButtonEvent const& event) override;
+	void MouseButtonUp(SDL_MouseButtonEvent const& event) override;
+	void MouseWheel(SDL_MouseWheelEvent const& event) override;
+	void KeyDown(SDL_KeyboardEvent const& event) override;
+	void KeyUp(SDL_KeyboardEvent const& event) override;
+
+	//members
+	Image cardSheet;
+	TradingCardList cardList;
 };
