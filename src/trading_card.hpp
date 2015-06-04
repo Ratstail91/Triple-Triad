@@ -51,8 +51,8 @@ public:
 	//position
 	void SetX(int i) { posX = i; }
 	void SetY(int i) { posY = i; }
-	int SetX() { return posX; }
-	int SetY() { return posY; }
+	int GetX() { return posX; }
+	int GetY() { return posY; }
 
 	//attributes
 	int GetTop() const { return top; }
