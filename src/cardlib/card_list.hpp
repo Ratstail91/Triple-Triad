@@ -33,7 +33,7 @@ public:
 	void Sort() { sorter(&head); }
 	void Shuffle() { shuffler(&head); }
 
-private:
+protected:
 	Card* head = nullptr;
 	Sorter sorter;
 	Shuffler shuffler;

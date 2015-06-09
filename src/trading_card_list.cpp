@@ -19,35 +19,8 @@
  * 3. This notice may not be removed or altered from any source
  * distribution.
 */
-#pragma once
-
-#include "base_scene.hpp"
-
-#include "image.hpp"
 #include "trading_card_list.hpp"
 
-class ExampleScene : public BaseScene {
-public:
-	ExampleScene();
-	~ExampleScene();
-
-	void RenderFrame(SDL_Renderer* renderer) override;
-
-private:
-	//frame phases
-	void FrameStart() override;
-	void Update() override;
-	void FrameEnd() override;
-
-	//input events
-	void MouseMotion(SDL_MouseMotionEvent const& event) override;
-	void MouseButtonDown(SDL_MouseButtonEvent const& event) override;
-	void MouseButtonUp(SDL_MouseButtonEvent const& event) override;
-	void MouseWheel(SDL_MouseWheelEvent const& event) override;
-	void KeyDown(SDL_KeyboardEvent const& event) override;
-	void KeyUp(SDL_KeyboardEvent const& event) override;
-
-	//members
-	Image cardSheet;
-	TradingCardList cardList;
-};
+void TradingCardList::DrawTo(SDL_Renderer* renderer, int posX, int posY) {
+	//TODO: iterate over the list
+}

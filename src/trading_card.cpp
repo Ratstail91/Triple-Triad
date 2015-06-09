@@ -37,7 +37,7 @@ TradingCard::~TradingCard() {
 	//TODO: a memory leak warning
 }
 
-void TradingCard::DrawTo(SDL_Renderer* renderer) {
+void TradingCard::DrawTo(SDL_Renderer* renderer, int posX, int posY) {
 	cardSheet.DrawTo(renderer, posX, posY, .25, .25);
 }
 
@@ -47,7 +47,7 @@ void TradingCard::SetColor(Color c) {
 }
 
 //define the sorting functor
-int SortFunctor::Compare(TradingCard* lhs, TradingCard* rhs) {
+int TradingCardSorter::Compare(TradingCard* lhs, TradingCard* rhs) {
 	//unknown, just use a placeholder
 	if (lhs->GetTop() < rhs->GetTop()) return -1;
 	if (lhs->GetTop() > rhs->GetTop()) return 1;

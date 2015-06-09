@@ -21,33 +21,15 @@
 */
 #pragma once
 
-#include "base_scene.hpp"
+#include "card_list.hpp"
+#include "trading_card.hpp"
 
-#include "image.hpp"
-#include "trading_card_list.hpp"
+#include "SDL2/SDL.h"
 
-class ExampleScene : public BaseScene {
+class TradingCardList : public CardList<TradingCard, TradingCardSorter> {
 public:
-	ExampleScene();
-	~ExampleScene();
-
-	void RenderFrame(SDL_Renderer* renderer) override;
+	void DrawTo(SDL_Renderer*, int posX, int posY);
 
 private:
-	//frame phases
-	void FrameStart() override;
-	void Update() override;
-	void FrameEnd() override;
-
-	//input events
-	void MouseMotion(SDL_MouseMotionEvent const& event) override;
-	void MouseButtonDown(SDL_MouseButtonEvent const& event) override;
-	void MouseButtonUp(SDL_MouseButtonEvent const& event) override;
-	void MouseWheel(SDL_MouseWheelEvent const& event) override;
-	void KeyDown(SDL_KeyboardEvent const& event) override;
-	void KeyUp(SDL_KeyboardEvent const& event) override;
-
-	//members
-	Image cardSheet;
-	TradingCardList cardList;
+	//
 };

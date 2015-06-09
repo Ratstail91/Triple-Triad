@@ -42,17 +42,11 @@ public:
 	TradingCard(SDL_Texture*, int index, type_t top, type_t left, type_t right, type_t bottom);
 	~TradingCard();
 
-	void DrawTo(SDL_Renderer*);
+	void DrawTo(SDL_Renderer*, int posX, int posY);
 
 	//controller
 	void SetColor(Color);
 	Color GetColor() const { return color; }
-
-	//position
-	void SetX(int i) { posX = i; }
-	void SetY(int i) { posY = i; }
-	int GetX() { return posX; }
-	int GetY() { return posY; }
 
 	//attributes
 	int GetTop() const { return top; }
@@ -65,10 +59,10 @@ public:
 	TradingCard* GetNext() const { return next; }
 
 private:
+	//graphics
 	SpriteSheet cardSheet;
-	const int index = -1; //index on the spritesheet
-	Color color = Color::RED; //also an index
-	int posX = 0, posY = 0; //screenpos
+	const int index = -1; //card identity
+	Color color = Color::RED; //who controls the card
 
 	//attributes of the card
 	const type_t top = -1, left = -1, right = -1, bottom = -1;
@@ -78,12 +72,9 @@ private:
 };
 
 //define the sorting functor
-class SortFunctor : public CardSorter<TradingCard> {
+class TradingCardSorter : public CardSorter<TradingCard> {
 public:
 	//EMPTY
 protected:
 	int Compare(TradingCard* lhs, TradingCard* rhs) override;
 };
-
-//define the list type
-typedef CardList<TradingCard, SortFunctor> TradingCardList;
