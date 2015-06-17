@@ -25,13 +25,19 @@
 #include <fstream>
 
 ExampleScene::ExampleScene() {
-	LoadCards();
+	//graphics
+	cardSheet.Load(GetRenderer(), "../rsc/level1.png");
+	cardSheet.SetClipW(512);
+	cardSheet.SetClipH(512);
+	frame.Load(GetRenderer(), "../rsc/framing.png");
 
-	//debugging
-	std::cout << "card count: " << masterList.Size() << std::endl;
+	//cards
+	LoadCards();
+	DealCards();
 }
 
 ExampleScene::~ExampleScene() {
+	CollectCards();
 	UnloadCards();
 }
 
@@ -52,7 +58,9 @@ void ExampleScene::FrameEnd() {
 }
 
 void ExampleScene::RenderFrame(SDL_Renderer* renderer) {
-	cardSheet.DrawTo(renderer, 0, 0, .25, .25);
+	frame.DrawTo(renderer, 0, 0);
+	RenderHand(renderer, &leftHand, 0, 0);
+	RenderHand(renderer, &rightHand, 672, 0);
 }
 
 //-------------------------
@@ -81,6 +89,9 @@ void ExampleScene::KeyDown(SDL_KeyboardEvent const& event) {
 		case SDLK_ESCAPE:
 			QuitEvent();
 		break;
+		case SDLK_r:
+			SetSceneSignal(SceneSignal::EXAMPLE_SCENE);
+		break;
 	}
 }
 
@@ -93,8 +104,7 @@ void ExampleScene::KeyUp(SDL_KeyboardEvent const& event) {
 //-------------------------
 
 void ExampleScene::LoadCards() {
-	//open the image & text files
-	cardSheet.Load(GetRenderer(), "../rsc/level1.png");
+	//load the text file
 	std::ifstream is("../rsc/level1.txt");
 	int index;
 	int top, left, right, bottom;
@@ -115,10 +125,37 @@ void ExampleScene::LoadCards() {
 	is.close();
 }
 
+void ExampleScene::DealCards() {
+	masterList.Shuffle();
+	leftHand.Push(masterList.Pop(0, 5));
+	rightHand.Push(masterList.Pop(0, 5));
+}
+
+void ExampleScene::CollectCards() {
+	//return all cards to the master list
+	masterList.Push(leftHand.Pop(0, leftHand.Size()));
+	masterList.Push(rightHand.Pop(0, rightHand.Size()));
+}
+
 void ExampleScene::UnloadCards() {
 	//clear the cards from memory
 	while (masterList.Peek()) {
 		delete masterList.Pop();
 	}
 	cardSheet.Free();
+}
+
+void ExampleScene::RenderHand(SDL_Renderer* renderer, TradingCardList* list, int posX, int posY) {
+	//for each card
+	for (TradingCard* it = list->Peek(); it != nullptr; it = it->GetNext()) {
+		//for the clip
+		cardSheet.SetClipX(cardSheet.GetClipW() * static_cast<int>(it->GetColor()) );
+		cardSheet.SetClipY(cardSheet.GetClipH() * it->GetIndex());
+
+		//draw to
+		cardSheet.DrawTo(renderer, posX, posY, .25, .25);
+
+		//shift the y pos
+		posY += cardSheet.GetClipH() * .25 * .5;
+	}
 }

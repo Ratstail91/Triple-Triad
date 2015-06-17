@@ -44,6 +44,7 @@ public:
 	Color GetColor() const { return color; }
 
 	//attributes
+	int GetIndex() const {return index; }
 	int GetTop() const { return top; }
 	int GetLeft() const { return left; }
 	int GetRight() const { return right; }

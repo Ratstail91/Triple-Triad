@@ -49,9 +49,15 @@ private:
 
 	//misc
 	void LoadCards();
+	void DealCards();
+	void CollectCards();
 	void UnloadCards();
+	void RenderHand(SDL_Renderer* renderer, TradingCardList* list, int posX, int posY);
 
 	//members
+	Image frame;
 	Image cardSheet;
 	TradingCardList masterList;
+	TradingCardList leftHand;
+	TradingCardList rightHand;
 };
