@@ -22,15 +22,17 @@
 #include "example_scene.hpp"
 
 #include <iostream>
+#include <fstream>
 
 ExampleScene::ExampleScene() {
-	cardSheet.Load(GetRenderer(), "../rsc/level1.png");
+	LoadCards();
 
-	//
+	//debugging
+	std::cout << "card count: " << masterList.Size() << std::endl;
 }
 
 ExampleScene::~ExampleScene() {
-	//
+	UnloadCards();
 }
 
 //-------------------------
@@ -84,4 +86,39 @@ void ExampleScene::KeyDown(SDL_KeyboardEvent const& event) {
 
 void ExampleScene::KeyUp(SDL_KeyboardEvent const& event) {
 	//
+}
+
+//-------------------------
+//misc
+//-------------------------
+
+void ExampleScene::LoadCards() {
+	//open the image & text files
+	cardSheet.Load(GetRenderer(), "../rsc/level1.png");
+	std::ifstream is("../rsc/level1.txt");
+	int index;
+	int top, left, right, bottom;
+
+	//TODO: parsing error checks
+	while (!is.eof()) {
+		//read the card data
+		is >> index;
+		is >> top;
+		is >> left;
+		is >> right;
+		is >> bottom;
+
+		masterList.Push(new TradingCard(index, top, left, right, bottom));
+	}
+
+	//close the text file
+	is.close();
+}
+
+void ExampleScene::UnloadCards() {
+	//clear the cards from memory
+	while (masterList.Peek()) {
+		delete masterList.Pop();
+	}
+	cardSheet.Free();
 }

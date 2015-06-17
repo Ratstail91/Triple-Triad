@@ -21,6 +21,4 @@
 */
 #include "trading_card_list.hpp"
 
-void TradingCardList::DrawTo(SDL_Renderer* renderer, int posX, int posY) {
-	//TODO: iterate over the list
-}
+ 

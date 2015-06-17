@@ -24,11 +24,9 @@
 #include "card_list.hpp"
 #include "trading_card.hpp"
 
-#include "SDL2/SDL.h"
-
 class TradingCardList : public CardList<TradingCard, TradingCardSorter> {
 public:
-	void DrawTo(SDL_Renderer*, int posX, int posY);
+	//
 
 private:
 	//

@@ -24,9 +24,6 @@
 #include "card_list.hpp"
 #include "card_shuffler.hpp"
 #include "card_sorter.hpp"
-#include "sprite_sheet.hpp"
-
-#include "SDL2/SDL.h"
 
 class TradingCard {
 private:
@@ -39,13 +36,11 @@ public:
 	};
 
 	TradingCard() = delete;
-	TradingCard(SDL_Texture*, int index, type_t top, type_t left, type_t right, type_t bottom);
+	TradingCard(int index, type_t top, type_t left, type_t right, type_t bottom);
 	~TradingCard();
 
-	void DrawTo(SDL_Renderer*, int posX, int posY);
-
 	//controller
-	void SetColor(Color);
+	void SetColor(Color c) { color = c; }
 	Color GetColor() const { return color; }
 
 	//attributes
@@ -59,8 +54,6 @@ public:
 	TradingCard* GetNext() const { return next; }
 
 private:
-	//graphics
-	SpriteSheet cardSheet;
 	const int index = -1; //card identity
 	Color color = Color::RED; //who controls the card
 

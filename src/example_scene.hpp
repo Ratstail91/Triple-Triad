@@ -47,7 +47,11 @@ private:
 	void KeyDown(SDL_KeyboardEvent const& event) override;
 	void KeyUp(SDL_KeyboardEvent const& event) override;
 
+	//misc
+	void LoadCards();
+	void UnloadCards();
+
 	//members
 	Image cardSheet;
-	TradingCardList cardList;
+	TradingCardList masterList;
 };

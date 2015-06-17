@@ -30,6 +30,8 @@ public:
 	Card* Peek(int index = 0);
 	Card* Pop(int index = 0, int count = 1);
 
+	int Size();
+
 	void Sort() { sorter(&head); }
 	void Shuffle() { shuffler(&head); }
 
@@ -40,7 +42,7 @@ protected:
 };
 
 template<typename Card, typename Sorter, typename Shuffler>
-Card* CardList<Card,Sorter,Shuffler>::Push(Card* slab) {
+Card* CardList<Card, Sorter, Shuffler>::Push(Card* slab) {
 	//recieve any number of cards
 	if (!slab) return nullptr;
 	Card* tmp = head;
@@ -50,14 +52,14 @@ Card* CardList<Card,Sorter,Shuffler>::Push(Card* slab) {
 }
 
 template<typename Card, typename Sorter, typename Shuffler>
-Card* CardList<Card,Sorter,Shuffler>::Peek(int index) {
+Card* CardList<Card, Sorter, Shuffler>::Peek(int index) {
 	Card* it = head;
 	while (it && index--) it = it->GetNext();
 	return it;
 }
 
 template<typename Card, typename Sorter, typename Shuffler>
-Card* CardList<Card,Sorter,Shuffler>::Pop(int index, int count) {
+Card* CardList<Card, Sorter, Shuffler>::Pop(int index, int count) {
 	//nothing to return
 	if (!head) return nullptr;
 
@@ -90,4 +92,13 @@ Card* CardList<Card,Sorter,Shuffler>::Pop(int index, int count) {
 	tail->SetNext(nullptr);
 
 	return ret;
+}
+
+template<typename Card, typename Sorter, typename Shuffler>
+int CardList<Card, Sorter, Shuffler>::Size() {
+	//count the number of cards
+	int size = 0;
+	Card* it = head;
+	while (it) it = it->GetNext(), size++;
+	return size;
 }

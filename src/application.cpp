@@ -33,7 +33,7 @@ void Application::Init(int argc, char* argv[]) {
 		SDL_WINDOWPOS_UNDEFINED,
 		screenWidth,
 		screenHeight,
-		0);
+		SDL_WINDOW_RESIZABLE);
 
 	if (!window) {
 		std::ostringstream msg;
@@ -49,6 +49,10 @@ void Application::Init(int argc, char* argv[]) {
 		msg << "Failed to create the renderer: " << SDL_GetError();
 		throw(std::runtime_error(msg.str()));
 	}
+
+	//screen scaling
+	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "best");
+	SDL_RenderSetLogicalSize(renderer, 800, 600);
 
 	//set the hook for the renderer
 	BaseScene::SetRenderer(renderer);

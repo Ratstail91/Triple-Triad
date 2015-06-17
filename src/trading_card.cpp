@@ -21,29 +21,18 @@
 */
 #include "trading_card.hpp"
 
-TradingCard::TradingCard(SDL_Texture* tex, int index, type_t _top, type_t _left, type_t _right, type_t _bottom):
+TradingCard::TradingCard(int index, type_t _top, type_t _left, type_t _right, type_t _bottom):
 	index(index),
 	top(_top),
 	left(_left),
 	right(_right),
 	bottom(_bottom)
 {
-	cardSheet.SetTexture(tex, 2, 10); //TODO: this parameter will need changing
-	cardSheet.SetIndexX(static_cast<int>(color) * cardSheet.GetClipW());
-	cardSheet.SetIndexY(index * cardSheet.GetClipW());
+	//EMPTY
 }
 
 TradingCard::~TradingCard() {
 	//TODO: a memory leak warning
-}
-
-void TradingCard::DrawTo(SDL_Renderer* renderer, int posX, int posY) {
-	cardSheet.DrawTo(renderer, posX, posY, .25, .25);
-}
-
-void TradingCard::SetColor(Color c) {
-	color = c;
-	cardSheet.SetIndexX(static_cast<int>(color) * cardSheet.GetClipW());
 }
 
 //define the sorting functor
