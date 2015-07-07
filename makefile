@@ -10,21 +10,6 @@ OUT=$(addprefix $(OUTDIR)/,tt)
 all: $(OUTDIR)
 	$(MAKE) -C src
 
-debug: export CXXFLAGS+=-g
-debug: clean all
-
-release: export CXXFLAGS+=-static-libgcc -static-libstdc++
-release: clean all package
-
-#For use on my machine ONLY
-package:
-ifeq ($(OS),Windows_NT)
-	rar a -r -ep Tortuga-win.rar $(OUTDIR)/*.exe  $(OUTDIR)/*.dll
-	rar a -r Tortuga-win.rar rsc/* copyright.txt instructions.txt
-else ifeq ($(shell uname), Linux)
-	tar -C $(OUTDIR) -zcvf Tortuga-linux.tar client server ../rsc ../copyright.txt ../instructions.txt
-endif
-
 $(OUTDIR):
 	mkdir $(OUTDIR)
 
